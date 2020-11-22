@@ -1,0 +1,41 @@
+----------------------- 
+NOME: nome 
+IDADE: 2292928 
+CPF: cpf 
+TELEFONE:  telefone 
+RUA: rua 
+NUMERO: numerbairro 
+BAIRRO: bairro 
+CIDADE: cidade 
+CEP: cep 
+DATA NASCIMENTO: data 
+EMAIL: email 
+DIAGNOSTICADO EM: diag 
+Comorbidades:  
+DIABETES 
+OBESIDADE 
+HIPERTENSAO 
+OUTROS 
+HIPERTENSAO 
+HIPERTENSAO 
+----------------------- 
+----------------------- 
+NOME: nomepaciente 
+IDADE: 2292928 
+CPF: cpf 
+TELEFONE:  telefone 
+RUA: rua 
+NUMERO: numerbairro 
+BAIRRO: bairro 
+CIDADE: cidade 
+CEP: cep 
+DATA NASCIMENTO: data 
+EMAIL: email 
+DIAGNOSTICADO EM: diag 
+Comorbidades:  
+DIABETES 
+HIPERTENSAO 
+OUTROS 
+OBESIDADE 
+OBESIDADE 
+----------------------- 

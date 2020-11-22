@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1605820738 source:c:\users\dionc\documents\projetos-faculdade\pim4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"menu.c"
+
+1605822042 c:\users\dionc\documents\projetos-faculdade\pim4\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"cadastro.c"
+
+1605824150 c:\users\dionc\documents\projetos-faculdade\pim4\cadastro.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"paciente.h"
+
+1605821634 c:\users\dionc\documents\projetos-faculdade\pim4\paciente.h
+
+1605877053 source:c:\users\danielles\documents\workspace\pim4-main\pim4-main\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"menu.c"
+
+1606009211 c:\users\danielles\documents\workspace\pim4-main\pim4-main\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"cadastro.c"
+
+1606023796 c:\users\danielles\documents\workspace\pim4-main\pim4-main\cadastro.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"paciente.c"
+	<stdio.h>
+
+1605877053 c:\users\danielles\documents\workspace\pim4-main\pim4-main\paciente.h
+
+1606022455 source:c:\users\danielles\documents\workspace\pim4-main\pim4-main\paciente.c
+	"endereco.c"
+	"comorbidade.c"
+
+1606022455 c:\users\danielles\documents\workspace\pim4-main\pim4-main\paciente.c
+	"endereco.c"
+	"comorbidade.c"
+
+1606006845 c:\users\danielles\documents\workspace\pim4-main\pim4-main\endereco.c
+
+1606019516 c:\users\danielles\documents\workspace\pim4-main\pim4-main\comorbidade.c
+	<stdio.h>
+
+1606006845 source:c:\users\danielles\documents\workspace\pim4-main\pim4-main\endereco.c
+
+1606019516 source:c:\users\danielles\documents\workspace\pim4-main\pim4-main\comorbidade.c
+	<stdio.h>
+
