@@ -11,7 +11,7 @@ void menu()
         printf("## ESCOLHA UMA OPCAO: ## \n\n");
 
         printf("#1 Cadastrar paciente# \n");
-        printf("#3 Listar pacientes# \n");
+        //printf("#3 Listar pacientes# \n");
         printf("#9 SAIR# \n");
 
         scanf("%d", &opcao);
@@ -20,9 +20,9 @@ void menu()
             case 1 :
                 cadastro();
                 break;
-            case 3 :
-                printf("Lista.");
-                break;
+            //case 3 :
+              //  printf("Lista.");
+                //break;
             case 9 :
                 exit(0);
                 break;

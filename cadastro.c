@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "paciente.c"
-#include <stdio.h>
+#include "validador.c"
 
 void cadastro()
 {
@@ -11,102 +11,151 @@ void cadastro()
     int opcaoPossuiComorbidade = 0;
     int comorbidades[5];
     int qtdComorbidades = 0;
+    int anoBase = 2020;
 
     //-----inicio captura dados paciente ------
-    //Nome
-    printf("Nome do paciente:");
-    scanf("%s", paciente.nome);
 
-    //Idade
-    printf("Idade do paciente:");
-    scanf("%d", paciente.idade);
+    do
+    {
+        //Nome
+        fflush(stdin);
+        printf("Nome do paciente:");
+        gets(paciente.nome);
 
-    //cpf
-    printf("Digite o CPF:");
-    scanf("%s", paciente.cpf);
+        if(validaCaracteresAlfa(paciente.nome) == 0){
+            printf("Nome do paciente nao pode conter numeros ou caracteres especiais!\n");
+        }
+    }
+    while(validaCaracteresAlfa(paciente.nome) == 0);
+
+
+    do
+    {
+        //cpf
+        fflush(stdin);
+        printf("Digite o CPF:");
+        gets(paciente.cpf);
+
+        if(validaNumerico(paciente.cpf) == 0){
+            printf("Insira somente numeros no CPF!\n");
+        }
+    }
+    while(validaNumerico(paciente.cpf) == 0);
 
     //telefone
+    fflush(stdin);
     printf("Telefone:");
-    scanf("%s", paciente.telefone);
+    gets(paciente.telefone);
 
     //endereco
-    printf("Endereço completo paciente \n");
+    fflush(stdin);
+    printf("Endereco completo paciente \n");
     printf("Rua:");
-    scanf("%s", paciente.endereco.rua);
+    gets(paciente.endereco.rua);
 
+    fflush(stdin);
     printf("Numero:");
-    scanf("%s", paciente.endereco.numero);
+    gets(paciente.endereco.numero);
 
+    fflush(stdin);
     printf("Bairro:");
-    scanf("%s", paciente.endereco.bairro);
+    gets(paciente.endereco.bairro);
 
+    fflush(stdin);
     printf("Cidade:");
-    scanf("%s", paciente.endereco.cidade);
+    gets(paciente.endereco.cidade);
 
+    fflush(stdin);
     printf("CEP:");
-    scanf("%s", paciente.endereco.cep);
+    gets(paciente.endereco.cep);
 
     //data nascimento
-    printf("Data nascimento do paciente:");
-    scanf("%s", paciente.dataNascimento);
+    fflush(stdin);
+    printf("Data nascimento do paciente \n");
+
+    printf("Dia:");
+    scanf("%d", &paciente.dataNascimento.dia);
+
+    printf("Mes:");
+    scanf("%d", &paciente.dataNascimento.mes);
+
+    printf("Ano:");
+    scanf("%d", &paciente.dataNascimento.ano);
 
     //email
+    fflush(stdin);
     printf("Email:");
-    scanf("%s", paciente.email);
+    gets(paciente.email);
 
     //data diagnostico
-    printf("Diagnosticado em:");
-    scanf("%s", paciente.dataDiagnostico);
+    fflush(stdin);
+    printf("Data do diagnostico \n");
 
-    printf("Possui alguma comorbidade?");
+    printf("Dia:");
+    scanf("%d", &paciente.dataDiagnostico.dia);
+
+    printf("Mes:");
+    scanf("%d", &paciente.dataDiagnostico.mes);
+
+    printf("Ano:");
+    scanf("%d", &paciente.dataDiagnostico.ano);
+
+    fflush(stdin);
+    printf("Possui alguma comorbidade? Digite 1 para SIM e 0 para NAO: ");
     scanf("%d", &opcaoPossuiComorbidade);
+
+
     int i = 0;
-    switch(opcaoPossuiComorbidade){
-        //CASO SIM
-        case 1:
-            while(i < 5){
-                printf("Digite qual: \n");
-                printf("[1] - DIABETES \n");
-                printf("[2] - OBESIDADE \n");
-                printf("[3] - HIPERTENSAO \n");
-                printf("[4] - TUBERCULOSE \n");
-                printf("[5] - OUTROS \n");
-                printf("[0] - SAIR \n");
-                scanf("%d", &opcaoComorbidade);
-                if(opcaoComorbidade > 0 && opcaoComorbidade <= 5){
-                    comorbidades[i] = opcaoComorbidade;
-                    qtdComorbidades++;
-                }else if(opcaoComorbidade == 0){
-                    break;
-                }else{
-                    printf("Opcao invalida: \n");
-                    continue;
-                }
+    if (opcaoPossuiComorbidade == 1)
+    {
+        while (i < 5)
+        {
+            printf("Digite qual: \n");
+            printf("[1] - DIABETES \n");
+            printf("[2] - OBESIDADE \n");
+            printf("[3] - HIPERTENSAO \n");
+            printf("[4] - TUBERCULOSE \n");
+            printf("[5] - OUTROS \n");
+            printf("[0] - SAIR \n");
+
+            scanf("%d", &opcaoComorbidade);
+            if (opcaoComorbidade > 0 && opcaoComorbidade <= 5)
+            {
+                comorbidades[i] = opcaoComorbidade;
+                qtdComorbidades++;
                 i++;
             }
-            break;
-        //CASO NAO
-        case 2:
-            break;
-        //CASO INVALIDO
-        default:
-            printf("Opcao invalida: \n");
+            else if (opcaoComorbidade == 0)
+            {
+                break;
+            }
+            else
+            {
+                printf("Opcao invalida: \n");
+                continue;
+            }
+
+        }
+    }
+    else if (opcaoPossuiComorbidade != 0){
+        printf("Opcao invalida: \n");
     }
 
-    for(int i = 0; i < 5; i++){
-        if(comorbidades[i] > 0){
+    for (int i = 0; i < 5; i++)
+    {
+        if (comorbidades[i] > 0)
+        {
             paciente.comorbidades[i] = comorbidades[i];
         }
     }
     //-----FIM captura dados paciente ------
 
     //-----INICIO GRAVA ARQUIVO PACIENTES REGULARES---------
-    FILE * pFile;
+    FILE *pFile;
     pFile = fopen("pacientesRegulares.txt", "a");
 
     fprintf(pFile, "%s \n", "-----------------------");
     fprintf(pFile, "NOME: %s \n", paciente.nome);
-    fprintf(pFile, "IDADE: %d \n", paciente.idade);
     fprintf(pFile, "CPF: %s \n", paciente.cpf);
     fprintf(pFile, "TELEFONE:  %s \n", paciente.telefone);
     fprintf(pFile, "RUA: %s \n", paciente.endereco.rua);
@@ -114,29 +163,30 @@ void cadastro()
     fprintf(pFile, "BAIRRO: %s \n", paciente.endereco.bairro);
     fprintf(pFile, "CIDADE: %s \n", paciente.endereco.cidade);
     fprintf(pFile, "CEP: %s \n", paciente.endereco.cep);
-    fprintf(pFile, "DATA NASCIMENTO: %s \n", paciente.dataNascimento);
+    fprintf(pFile, "DATA NASCIMENTO: %d/%d/%d \n", paciente.dataNascimento.dia, paciente.dataNascimento.mes, paciente.dataNascimento.ano);
     fprintf(pFile, "EMAIL: %s \n", paciente.email);
-    fprintf(pFile, "DIAGNOSTICADO EM: %s \n", paciente.dataDiagnostico);
+    fprintf(pFile, "DIAGNOSTICADO EM: %d/%d/%d \n", paciente.dataDiagnostico.dia, paciente.dataDiagnostico.mes, paciente.dataDiagnostico.ano);
 
     fprintf(pFile, "%s \n", "Comorbidades: ");
-    for(int i = 0; i < sizeof(paciente.comorbidades); i++){
-        switch(paciente.comorbidades[i]){
-            case 1:
-                fprintf(pFile, "%s \n", "DIABETES");
-                break;
-            case 2:
-                fprintf(pFile, "%s \n", "OBESIDADE");
-                break;
-            case 3:
-                fprintf(pFile, "%s \n", "HIPERTENSAO");
-                break;
-            case 4:
-                fprintf(pFile, "%s \n", "TUBERCULOSE");
-                break;
-            case 5:
-                fprintf(pFile, "%s \n", "OUTROS");
-                break;
-
+    for (int i = 0; i < sizeof(paciente.comorbidades); i++)
+    {
+        switch (paciente.comorbidades[i])
+        {
+        case 1:
+            fprintf(pFile, "%s \n", "DIABETES");
+            break;
+        case 2:
+            fprintf(pFile, "%s \n", "OBESIDADE");
+            break;
+        case 3:
+            fprintf(pFile, "%s \n", "HIPERTENSAO");
+            break;
+        case 4:
+            fprintf(pFile, "%s \n", "TUBERCULOSE");
+            break;
+        case 5:
+            fprintf(pFile, "%s \n", "OUTROS");
+            break;
         }
     }
     fprintf(pFile, "%s \n", "-----------------------");
@@ -145,14 +195,16 @@ void cadastro()
 
     //-----FIM GRAVA ARQUIVO PACIENTES REGULARES---------
 
+
     //-----INICIO GRAVA ARQUIVO PACIENTES GRUPO DE RISCO---------
-    if(paciente.idade > 65 || sizeof(paciente.comorbidades) > 0){
-        FILE * grupoRiscoArquivo;
+    if (anoBase - paciente.dataNascimento.ano > 65 || sizeof(paciente.comorbidades) > 0)
+    {
+        FILE *grupoRiscoArquivo;
         grupoRiscoArquivo = fopen("pacientesRisco.txt", "a");
 
         fprintf(pFile, "%s \n", "-----------------------");
         fprintf(pFile, "CEP: %s \n", paciente.endereco.cep);
-        fprintf(pFile, "IDADE: %d \n", paciente.idade);
+        fprintf(pFile, "IDADE: %d \n", anoBase - paciente.dataNascimento.ano);
         fprintf(pFile, "%s \n", "-----------------------");
         fclose(pFile);
     }

@@ -1,13 +1,13 @@
 #include "endereco.c"
+#include "data.c"
 
 struct Paciente{
     char nome[50];
     char cpf[11];
-    int idade[3];
     char telefone[11];
     struct Endereco endereco;
-    char dataNascimento[8];
+    struct Data dataNascimento;
     char email[50];
-    char dataDiagnostico[8];
+    struct Data dataDiagnostico;
     int comorbidades[5];
 };

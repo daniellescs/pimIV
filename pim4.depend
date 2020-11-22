@@ -56,3 +56,40 @@
 1606019516 source:c:\users\danielles\documents\workspace\pim4-main\pim4-main\comorbidade.c
 	<stdio.h>
 
+1606070890 source:c:\users\dionc\desktop\pimiv\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"menu.c"
+
+1606070890 c:\users\dionc\desktop\pimiv\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"cadastro.c"
+
+1606077469 c:\users\dionc\desktop\pimiv\cadastro.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"paciente.c"
+	"validador.c"
+
+1606077094 c:\users\dionc\desktop\pimiv\paciente.c
+	"endereco.c"
+	"data.c"
+
+1606070890 c:\users\dionc\desktop\pimiv\endereco.c
+
+1606074927 c:\users\dionc\desktop\pimiv\validador.c
+	<stdlib.h>
+
+1606077094 source:c:\users\dionc\desktop\pimiv\paciente.c
+	"endereco.c"
+	"data.c"
+
+1606070890 source:c:\users\dionc\desktop\pimiv\endereco.c
+
+1606075936 c:\users\dionc\desktop\pimiv\data.c
+
+1606075936 source:c:\users\dionc\desktop\pimiv\data.c
+
